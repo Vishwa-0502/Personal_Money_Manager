@@ -1,8 +1,6 @@
+# Personal Money Manager
 
-# Net Worth Calculator
-
-The **Net Worth Calculator** is a full-stack MERN (MongoDB, Express, React, Node.js) application that allows users to register and log in using JWT-based authentication. Once authenticated, users can input detailed assets and liabilities via REST APIs to calculate their net worth. The application provides a rich interface for calculating financial information and includes comprehensive unit testing for the backend using Jest and Supertest.
-
+The **Personal Money Manager** is a full-stack MERN (MongoDB, Express, React, Node.js) application that allows users to register and log in using JWT-based authentication. Once authenticated, users can input detailed assets and liabilities via REST APIs to calculate their net worth. The application provides a rich interface for calculating financial information and includes comprehensive unit testing for the backend using Jest and Supertest. Also includes the use of Chart.js to show INCOME, EXPENSES, and NET WORTH.
 
 ## Technologies Used
 
@@ -22,7 +20,6 @@ The **Net Worth Calculator** is a full-stack MERN (MongoDB, Express, React, Node
 - **JWT**: For secure user authentication and session management.
 - **bcryptjs**: For password hashing and security.
 - **Jest & Supertest**: For backend unit and integration testing.
-
 
 ## Features
 
@@ -68,34 +65,34 @@ The **Net Worth Calculator** is a full-stack MERN (MongoDB, Express, React, Node
 
 - **Deployment Ready**:
   - The application is designed for easy deployment on cloud platforms such as Vercel (frontend) and Render.com (backend).
+
 ## Acknowledgements
 
 I would like to extend my gratitude to the following projects and libraries that were instrumental in the development of this application:
 
-- **[React](https://reactjs.org/)**: A JavaScript library for building user interfaces. Its component-based architecture was essential for creating the dynamic frontend of the application.
+- **[React](https://reactjs.org/)**: A JavaScript library for building user interfaces.
 - **[Vite](https://vitejs.dev/)**: A fast build tool that significantly improved development speed and efficiency.
-- **[Tailwind CSS](https://tailwindcss.com/)**: A utility-first CSS framework that facilitated the creation of a responsive and modern design.
-- **[Headless UI](https://headlessui.dev/)**: Provides completely unstyled, fully accessible UI components that integrate seamlessly with Tailwind CSS.
-- **[Heroicons](https://heroicons.com/)**: A collection of free, MIT-licensed high-quality SVG icons used to enhance the user interface.
-- **[Axios](https://axios-http.com/)**: A promise-based HTTP client for making API requests, simplifying communication between the frontend and backend.
-- **[Node.js](https://nodejs.org/)**: A JavaScript runtime that allowed for the development of the backend server.
-- **[Express.js](https://expressjs.com/)**: A web framework for Node.js that facilitated the creation of RESTful APIs.
-- **[MongoDB](https://www.mongodb.com/)**: A NoSQL database that provided a flexible and scalable solution for storing user data and financial information.
-- **[Mongoose](https://mongoosejs.com/)**: An ODM (Object Data Modeling) library for MongoDB and Node.js, used to model and interact with data.
-- **[JWT](https://jwt.io/)**: A compact, URL-safe means of representing claims to be transferred between two parties, used for secure authentication.
-- **[bcryptjs](https://github.com/dcodeIO/bcrypt.js)**: A library to hash passwords, ensuring secure user authentication.
-- **[Jest](https://jestjs.io/)**: A delightful JavaScript testing framework used for unit testing and ensuring the reliability of the backend.
-- **[Supertest](https://github.com/visionmedia/supertest)**: A testing library for HTTP assertions, used alongside Jest for API testing.
+- **[Tailwind CSS](https://tailwindcss.com/)**: A utility-first CSS framework.
+- **[Headless UI](https://headlessui.dev/)**: Accessible and customizable UI components.
+- **[Heroicons](https://heroicons.com/)**: High-quality SVG icons.
+- **[Axios](https://axios-http.com/)**: A promise-based HTTP client for API requests.
+- **[Node.js](https://nodejs.org/)**: A JavaScript runtime for backend development.
+- **[Express.js](https://expressjs.com/)**: A web framework for Node.js.
+- **[MongoDB](https://www.mongodb.com/)**: A NoSQL database.
+- **[Mongoose](https://mongoosejs.com/)**: ODM library for MongoDB.
+- **[JWT](https://jwt.io/)**: JSON Web Tokens for authentication.
+- **[bcryptjs](https://github.com/dcodeIO/bcrypt.js)**: A library to hash passwords.
+- **[Jest](https://jestjs.io/)**: A JavaScript testing framework.
+- **[Supertest](https://github.com/visionmedia/supertest)**: HTTP assertions library for API testing.
 
-Thank you to the open-source community for providing these valuable tools and libraries, which greatly contributed to the development and success of this project.
 ## Installation
 
 To get started with the **Net Worth Calculator** application, follow these steps to set up the project on your local machine.
 
 ### Prerequisites
 
-- [Node.js](https://nodejs.org/) (version 14 or higher) installed
-- [MongoDB](https://www.mongodb.com/) installed locally or accessible via a cloud provider like MongoDB Atlas
+- [Node.js](https://nodejs.org/) (version 14 or higher) installed.
+- [MongoDB](https://www.mongodb.com/) installed locally or accessible via a cloud provider like MongoDB Atlas.
 
 ### Setup Instructions
 
@@ -104,86 +101,112 @@ To get started with the **Net Worth Calculator** application, follow these steps
    Clone the repository from GitHub to your local machine:
 
    ```bash
-   git clone https://github.com/your-username/net-worth-calculator.git
-   cd net-worth-calculator
-## API Reference
+   git clone https://github.com/Vishwa-0502/Personal_Money_Manager
+   
+2. **Install Backend Dependencies**
+Navigate to the backend folder and install the necessary dependencies:
+bash
+Copy code
+cd backend
+npm install
+Install Frontend Dependencies
 
-The **Net Worth Calculator** application provides several RESTful API endpoints to manage user authentication, assets, liabilities, and net worth calculations. Below is a detailed reference of the available endpoints.
+Similarly, navigate to the frontend folder and install the frontend dependencies:
 
-### Authentication
+bash
+Copy code
+cd frontend
+npm install
+Configure Environment Variables
 
-- **POST /api/auth/register**
-  
-  Register a new user.
+In the backend folder, create a .env file with the following content:
 
-  **Request Body**:
-  ```json
-  {
-    "name": "string",
-    "email": "string",
-    "password": "string"
+makefile
+Copy code
+MONGODB_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret
+Replace your_mongodb_connection_string with your MongoDB URI (local or MongoDB Atlas) and your_jwt_secret with a secret key for JWT encoding and decoding.
+
+Run the Application
+
+To start the backend and frontend servers:
+
+bash
+Copy code
+# Start backend server
+cd backend
+npm run dev
+
+# Start frontend server
+cd ../frontend
+npm run dev
+The backend will run at http://localhost:5000, and the frontend will run at http://localhost:3000.
+
+API Reference
+Authentication
+POST /api/auth/register: Register a new user.
+
+Request Body:
+
+json
+Copy code
+{
+  "name": "string",
+  "email": "string",
+  "password": "string"
+}
+POST /api/auth/login: Authenticate a user and obtain a JWT token.
+
+Request Body:
+
+json
+Copy code
+{
+  "email": "string",
+  "password": "string"
+}
+User Profile
+GET /api/user/profile: Retrieve user profile data.
+Net Worth Calculation
+POST /api/networth: Submit assets and liabilities to calculate net worth.
+
+Request Body:
+
+json
+Copy code
+{
+  "assets": {
+    "savings": 10000,
+    "investments": 5000
+  },
+  "liabilities": {
+    "loan": 2000,
+    "credit_card": 1000
   }
+}
+GET /api/networth: Retrieve the calculated net worth.
 
-## Authors
+Response:
 
-- [Hanu Singh](https://github.com/iknowaditya)
+json
+Copy code
+{
+  "netWorth": 12000
+} 
 
+**Usage**
+Frontend
+Once the app is up and running locally, you can use the following features:
+User Registration: Go to /register and provide your details to create a new account.
+User Login: Go to /login, enter your credentials, and authenticate.
+Net Worth Calculation: After logging in, go to /networth, enter your financial data (assets and liabilities), and calculate your net worth.
+Example API Requests
+You can use tools like Postman or cURL to interact with the API endpoints.
 
-## Badges
-
-
-![Build Status](https://img.shields.io/github/workflow/status/your-username/net-worth-calculator/CI)
-![Test Coverage](https://img.shields.io/codecov/c/github/iknowaditya/net-worth-calculator)
-![License](https://img.shields.io/github/license/iknowaditya/net-worth-calculator)
-
-## Screenshots
-
-
-![Screenshot 2024-09-01 173520](https://github.com/user-attachments/assets/0e3962dc-82aa-40ed-97f9-68a8fa45652c)
-
-![Screenshot 2024-09-01 173444](https://github.com/user-attachments/assets/5592bede-67a1-4103-b117-bbf10fd193de)
-
-![Screenshot 2024-09-01 173808](https://github.com/user-attachments/assets/174f1f46-6707-43db-8c7b-c44ccc6bd242)
-
-
-## Usage
-
-Here’s how to use the **Net Worth Calculator** application, including examples for both the frontend and backend.
-
-### Frontend
-
-Once you have the application running locally (see [Installation](#installation)), you can interact with it through the web interface.
-
-#### User Registration
-
-1. Navigate to the registration page at `http://localhost:3000/register`.
-2. Fill in the registration form with your name, email, and password.
-3. Click the "Register" button to create a new account.
-
-#### User Login
-
-1. Navigate to the login page at `http://localhost:3000/login`.
-2. Enter your email and password.
-3. Click the "Login" button to authenticate and gain access to your profile.
-
-#### Calculating Net Worth
-
-1. Log in to your account.
-2. Navigate to the net worth calculation page at `http://localhost:3000/networth`.
-3. Enter details for your assets and liabilities.
-4. Click the "Calculate" button to see your net worth.
-
-### Backend
-
-You can interact with the backend APIs using tools like Postman or cURL. Below are some example requests.
-
-#### User Registration
-
-**Endpoint**: `POST /api/register`
-
-**Request**:
-```bash
-curl -X POST http://localhost:5000/api/register \
+**Register User**
+bash
+Copy code
+curl -X POST http://localhost:5000/api/auth/register \
 -H "Content-Type: application/json" \
 -d '{
   "name": "John Doe",
@@ -191,32 +214,50 @@ curl -X POST http://localhost:5000/api/register \
   "password": "password123"
 }'
 
-## Environment Variables
+**Login User**
+bash
+Copy code
+curl -X POST http://localhost:5000/api/auth/login \
+-H "Content-Type: application/json" \
+-d '{
+  "email": "john.doe@example.com",
+  "password": "password123"
+}'
 
-To run this project, you will need to add the following environment variables to your .env file
+**Calculate Net Worth**
+bash
+Copy code
+curl -X POST http://localhost:5000/api/networth \
+-H "Authorization: Bearer <your_jwt_token>" \
+-H "Content-Type: application/json" \
+-d '{
+  "assets": {
+    "savings": 10000,
+    "investments": 5000
+  },
+  "liabilities": {
+    "loan": 2000,
+    "credit_card": 1000
+  }
+}'
 
-`MONGODB_URI=your_mongodb_connection_string`
+**Testing**
+Backend Testing
+Run backend tests using Jest and Supertest:
+bash
+Copy code
+cd backend
+npm run test
+License
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-`JWT_SECRET=your_jwt_secret`
+**Acknowledgements**
+React: A JavaScript library for building user interfaces.
+Vite: A fast development build tool.
+Tailwind CSS: A utility-first CSS framework.
+Chart.js: A simple yet flexible JavaScript charting library.
+MongoDB: A NoSQL database.
+Node.js & Express.js: Backend technologies for creating APIs.
+Jest & Supertest: For testing the backend APIs.
+JWT & bcryptjs: For secure authentication and password handling.
 
-
-## Deployment
-
-To deploy this project run
-
-```bash
-  npm run deploy
-```
-
-## Contributing
-
-We welcome contributions to the **Net Worth Calculator** project! If you would like to contribute, please follow these guidelines:
-
-### How to Contribute
-
-1. **Fork the Repository**: Start by forking the repository to your own GitHub account. This will create a copy of the project where you can make your changes.
-
-2. **Clone Your Fork**: Clone your forked repository to your local machine.
-   ```bash
-   git clone https://github.com/your-username/net-worth-calculator.git
-   cd net-worth-calculator
